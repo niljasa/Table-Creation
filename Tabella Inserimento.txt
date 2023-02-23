@@ -1,0 +1,41 @@
+Create Database Iserimento;
+
+Create Table Utente(
+UserID char(20) NOT NULL,
+Pass char(20) NOT NULL,
+Email varchar(255),
+Nome varchar(255),
+Ruolo varchar (255),
+Punt_tot BOOL,
+Primary Key(UserID),
+);
+
+Create Table Domande(
+ID char(20) NOT NULL,
+Testo varchar(255) NOT NULL,
+Tipo_Materia varchar(255),
+Difficoltà varchar(255),
+Punteggio_Domande BOOL,
+User char(20),
+Primary Key(ID),
+Foreign Key(User) References Utente (User),
+);
+
+Create Table Risposte(
+Cod_Ris char(20) NOT NULL,
+Testo varchar(255) NOT NULL,
+Vero_Falso char(10),
+Punteggio_Risposte BOOL,
+ID char(20);
+Primary Key(Cod_Ris),
+Foreign Key(ID) References Domande (ID),
+);
+
+
+
+
+ 						CREAZIONE INDICE PER LE TABELLE
+ 
+
+CREATE INDEX RIS
+ON Risposte (Punteggio_Risposte);
