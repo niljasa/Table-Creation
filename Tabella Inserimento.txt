@@ -1,0 +1,23 @@
+Create Table Utente(
+Email varchar(30) NOT NULL,
+Pasw varchar(20) NOT NULL,
+Nome varchar(30),
+Ruolo boolean,
+Punt_tot int,
+Primary Key(Email)
+);
+
+Create Table Domande(
+ID varchar(20) DEFAULT 0 AUTO_INCREMENT,
+Testo varchar(255) NOT NULL,
+Tipo_Materia varchar(255),
+Difficoltà varchar(25),
+Punteggio_Domande int,
+Email char(50),
+RisG varchar(50),
+RisE1 varchar(50),
+RisE2 varchar(50),
+RisE3 varchar(50),  
+Primary Key(ID),
+Foreign Key(Email) References Utente (Email)
+);
